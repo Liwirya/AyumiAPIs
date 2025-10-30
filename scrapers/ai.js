@@ -1,12 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyAuYU2ZTgbNuPFSSoelmgr3cLQfal3tNjA",
+  apiKey: "YOUR_GEMINI_APIKEY",
 });
 
 const groundingTool = {
   googleSearch: {},
-  codeExecution: {}, // tambahkan tools codeExecution
+  codeExecution: {}, 
 };
 
 const configSearch = {
@@ -62,7 +62,7 @@ const googleMapsGenerate = async (query, latLng) => {
       tools: [{ googleMaps: { enableWidget: true } }],
       toolConfig: {
         retrievalConfig: {
-          latLng: latLng || null, // bisa null jika tidak ada lokasi spesifik
+          latLng: latLng || null, 
         },
       },
     };
