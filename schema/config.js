@@ -1,11 +1,11 @@
 const options = {
-  name: "HaewonAPIs",
+  name: "AyumiAPIS(歩美)",
   developer: "@Liwirya",
   port: 1904,
-  webName: "HaewonAPIs Playground",
+  webName: "AyumiAPIS (歩美) Playground",
   description: "Rest APIs",
   favicon:
-    "https://iili.io/KWpbDJe.jpg",
+    "https://files.catbox.moe/ali6lb.jpg",
 };
 
 const host = {

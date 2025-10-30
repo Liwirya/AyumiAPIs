@@ -376,7 +376,13 @@ const swaggerDocument = {
   tags: [
     {
       name: "Tools",
-      description: "API untuk berbagai tools utilitas seperti speedtest, ping, dan lainnya.",
+      description:
+        "API buat lo yang pengen ngulik berbagai tools kece, kayak speedtest, ping, dan lainnya.",
+    },
+    {
+      name: "AI",
+      description:
+        "API buat layanan AI kece, termasuk Google Search AI sama Google Execute Code.",
     },
   ],
   paths: {
@@ -384,19 +390,17 @@ const swaggerDocument = {
       get: {
         tags: ["Tools"],
         summary: "Speed Test",
-        description: "Uji kecepatan upload, ping ke Google, dan dapatkan informasi lokasi jaringan.",
+        description:
+          "Tes kecepatan upload, ping ke Google, plus info lokasi jaringan lo.",
         responses: {
           200: {
-            description: "Hasil uji kecepatan berhasil diperoleh",
+            description: "Hasil speedtest keren berhasil didapetin",
             content: {
               "application/json": {
                 schema: {
                   type: "object",
                   properties: {
-                    status: {
-                      type: "boolean",
-                      example: true,
-                    },
+                    status: { type: "boolean", example: true },
                     developer: {
                       type: "string",
                       example: config.options.developer,
@@ -404,26 +408,14 @@ const swaggerDocument = {
                     result: {
                       type: "object",
                       properties: {
-                        upload: {
-                          type: "string",
-                          example: "4.2 Mbps",
-                        },
-                        ping: {
-                          type: "string",
-                          example: "89 ms",
-                        },
-                        server: {
-                          type: "string",
-                          example: "Jakarta, Jakarta, ID",
-                        },
+                        upload: { type: "string", example: "4.2 Mbps" },
+                        ping: { type: "string", example: "89 ms" },
+                        server: { type: "string", example: "Jakarta, Jakarta, ID" },
                         provider: {
                           type: "string",
                           example: "PT Telekomunikasi Indonesia",
                         },
-                        duration: {
-                          type: "string",
-                          example: "5.3 sec",
-                        },
+                        duration: { type: "string", example: "5.3 sec" },
                         time: {
                           type: "string",
                           example: "01/04/2024 15:30:25",
@@ -436,24 +428,366 @@ const swaggerDocument = {
             },
           },
           500: {
-            description: "Internal Server Error",
+            description: "Kesalahan server, coba ulang ya!",
             content: {
               "application/json": {
                 schema: {
                   type: "object",
                   properties: {
-                    status: {
-                      type: "boolean",
-                      example: false,
-                    },
+                    status: { type: "boolean", example: false },
                     message: {
                       type: "string",
-                      example: "Upload test gagal: timeout",
+                      example: "Upload testnya timeout bro!",
                     },
                     developer: {
                       type: "string",
                       example: config.options.developer,
                     },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "/api/ai/google-search": {
+      get: {
+        tags: ["AI"],
+        summary: "Google Search AI",
+        description:
+          "Cari info pakai Google Gemini AI dengan fitur Google Search, cepet dan kekinian.",
+        parameters: [
+          {
+            name: "query",
+            in: "query",
+            description:
+              "Masukin pertanyaan atau kata kunci yang mau dicari di Google Search AI.",
+            required: true,
+            schema: {
+              type: "string",
+              example: "Siapa pemenang Euro 2024?",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "Hasil pencarian berhasil didapetin, sip!",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: true },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                    result: {
+                      type: "string",
+                      example: "Pemenang Euro 2024 adalah tim nasional Jerman.",
+                    },
+                  },
+                },
+              },
+            },
+          },
+          400: {
+            description: "Parameter query gak diisi, bro!",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: false },
+                    message: {
+                      type: "string",
+                      example: "Bro, masukin parameter query dong!",
+                    },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                  },
+                },
+              },
+            },
+          },
+          500: {
+            description: "Server lagi error pas panggil Google Search AI nih.",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: false },
+                    message: {
+                      type: "string",
+                      example: "Google Search AI gagal merespon",
+                    },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "/api/ai/google-execute": {
+      get: {
+        tags: ["AI"],
+        summary: "Google Execute Code",
+        description:
+          "Eksekusi kode pakai Google Gemini AI, tinggal kasih perintah, beres deh.",
+        parameters: [
+          {
+            name: "query",
+            in: "query",
+            description:
+              "Isi dengan instruksi buat generate dan jalanin kode-nya ya.",
+            required: true,
+            schema: {
+              type: "string",
+              example:
+                "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "Kode berhasil dieksekusi, hasil siap cek!",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: true },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                    result: {
+                      type: "string",
+                      example:
+                        "Penjelasan lengkap\nKode:\n...source code...\nHasil:\n...eksekusi output...",
+                    },
+                  },
+                },
+              },
+            },
+          },
+          400: {
+            description: "Query-nya gak dikasih, isi dulu dong bro!",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: false },
+                    message: {
+                      type: "string",
+                      example: "Bro, masukin parameter query dong!",
+                    },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                  },
+                },
+              },
+            },
+          },
+          500: {
+            description: "Server error pas manggil Google Execute Code AI nih.",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: false },
+                    message: {
+                      type: "string",
+                      example: "Google Execute Code AI gagal merespon",
+                    },
+                    developer: {
+                      type: "string",
+                      example: config.options.developer,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "/api/ai/google-maps": {
+      get: {
+        tags: ["AI"],
+        summary: "Google Maps AI",
+        description:
+          "Bikin rencana jalan-jalan plus info lokal pakai context peta Google, lengkap banget.",
+        parameters: [
+          {
+            name: "query",
+            in: "query",
+            description:
+              "Permintaan yang mau diproses AI dengan konteks peta Google ya.",
+            required: true,
+            schema: {
+              type: "string",
+              example: "the best places to eat in Jakarta",
+            },
+          },
+          {
+            name: "location",
+            in: "query",
+            description:
+              "Preset lokasi buat konteks peta, contohnya jakarta, new-york, dll.",
+            required: false,
+            schema: {
+              type: "string",
+              enum: [
+                // Amerika Utara
+                "san-francisco",
+                "los-angeles",
+                "new-york",
+                "chicago",
+                "houston",
+                "toronto",
+                "vancouver",
+                "mexico-city",
+                // Amerika Selatan
+                "sao-paulo",
+                "rio-de-janeiro",
+                "buenos-aires",
+                "lima",
+                "bogota",
+                // Eropa
+                "london",
+                "paris",
+                "berlin",
+                "madrid",
+                "rome",
+                "amsterdam",
+                "moscow",
+                "vienna",
+                "zurich",
+                "stockholm",
+                // Asia
+                "jakarta",
+                "bandung",
+                "surabaya",
+                "bali",
+                "yogyakarta",
+                "medan",
+                "makassar",
+                "semarang",
+                "singapore",
+                "bangkok",
+                "kuala-lumpur",
+                "manila",
+                "tokyo",
+                "osaka",
+                "seoul",
+                "beijing",
+                "shanghai",
+                "hong-kong",
+                "taipei",
+                "hanoi",
+                "delhi",
+                "mumbai",
+                "dubai",
+                "riyadh",
+                "istanbul",
+                // Afrika
+                "cairo",
+                "nairobi",
+                "lagos",
+                "cape-town",
+                "johannesburg",
+                // Oseania
+                "sydney",
+                "melbourne",
+                "brisbane",
+                "perth",
+                "auckland",
+                "wellington",
+                // Kepulauan tambahan
+                "honolulu",
+                "maldives",
+                "fiji",
+                "papua",
+              ],
+              example: "jakarta",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description:
+              "Response AI dengan bumbu grounding Google Maps sukses didapetin.",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: true },
+                    developer: { type: "string", example: config.options.developer },
+                    result: {
+                      type: "object",
+                      properties: {
+                        text: {
+                          type: "string",
+                          example: "Here is the plan for your trip to San Francisco...",
+                        },
+                        groundingMetadata: {
+                          type: "object",
+                          description:
+                            "Metadata untuk tampilkan konteks peta plus sumbernya.",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          400: {
+            description: "Parameter query wajib diisi, bro!",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: false },
+                    message: {
+                      type: "string",
+                      example: "Parameter query wajib diisi.",
+                    },
+                    developer: { type: "string", example: config.options.developer },
+                  },
+                },
+              },
+            },
+          },
+          500: {
+            description: "Server error pas manggil Google Maps AI nih.",
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    status: { type: "boolean", example: false },
+                    message: {
+                      type: "string",
+                      example: "Google Maps AI gagal merespon",
+                    },
+                    developer: { type: "string", example: config.options.developer },
                   },
                 },
               },

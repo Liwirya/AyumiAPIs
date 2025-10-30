@@ -30,6 +30,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@google/genai": "^1.27.0",
     "@types/node": "^20.14.10",
     "axios": "^1.12.2",
     "axios-cookiejar-support": "^6.0.4",

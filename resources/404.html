@@ -1,306 +1,335 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 Not Found — HaewonAPIs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="HaewonAPIs - Simple, Fast, and Free REST API for Developers." />
+  <meta name="robots" content="archive, follow, imageindex, index, odp, snippet, translate" />
+  <meta name="author" content="Liwirya" />
+  <title>404 Not Found — HaewonAPIs</title>
 
-    <style>
-      :root {
-        /* === CUSTOMIZABLE COLORS & EFFECTS === */
-        --primary-color: #ff2a6d;        /* Neon pink accent */
-        --text-color: #ffffff;
-        --bg-color: #0f0f0f;
-        --card-bg: rgba(20, 20, 20, 0.8);
-        --glow: 0 0 20px rgba(255, 42, 109, 0.6);
-        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  <!-- Open Graph Meta -->
+  <meta property="og:site_name" content="HaewonAPIs" />
+  <meta property="og:title" content="404 Not Found — HaewonAPIs" />
+  <meta property="og:description" content="Halaman yang Anda cari nggak ketemu. Balik aja ke beranda atau chat tim support kita." />
+  <meta property="og:image" content="https://files.catbox.moe/w26vos.jpg" />
+  <meta property="og:url" content="https://www.hitam.live/404" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@liwiryawira" />
+  <meta name="twitter:title" content="404 Not Found — HaewonAPIs" />
+  <meta name="twitter:description" content="Halaman yang Anda cari nggak ketemu. Balik aja ke beranda atau chat tim support kita." />
+  <meta name="twitter:image" content="https://files.catbox.moe/w26vos.jpg" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://files.catbox.moe/w26vos.jpg" />
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #4da6ff;
+      --text-color: #ffffff;
+      --bg-color: #0d0d10;
+      --card-bg: rgba(20, 20, 25, 0.9);
+      --btn-primary: #ffffff;
+      --btn-secondary: #2a2a30;
+      --glow: 0 0 15px rgba(77, 166, 255, 0.4);
+      --shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      --transition: all 0.3s ease-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://files.catbox.moe/w26vos.jpg') no-repeat center center;
+      background-size: cover;
+      color: var(--text-color);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      background-blend-mode: overlay;
+      background-color: rgba(13, 13, 16, 0.85);
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+    }
+
+    .container {
+      z-index: 10;
+      padding: 2rem;
+      max-width: 800px;
+      width: 90%;
+      animation: fadeIn 1s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 3rem 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .error-code {
+      font-size: clamp(5rem, 15vw, 12rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -3px;
+      color: var(--primary-color);
+      text-shadow: 0 0 10px var(--primary-color);
+      margin-bottom: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .message-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .message-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--btn-primary);
+      color: #000;
+      border: 2px solid var(--primary-color);
+      box-shadow: var(--glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-color);
+      color: #fff;
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .btn-secondary {
+      background: var(--btn-secondary);
+      color: var(--text-color);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .footer {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      background: rgba(10, 10, 15, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 2.5rem 1.5rem;
       }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html, body {
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        text-align: center;
-      }
-
-      /* === BACKGROUND OPTIONS === */
-      /* Uncomment ONE section below */
-
-      /* OPTION 1: Animated Gradient (Default) */
-      body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(-45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        z-index: -2;
-      }
-
-      /* OPTION 2: Image Background */
-      /*
-      body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('https://source.unsplash.com/random/1920x1080?cyberpunk,neon') no-repeat center center;
-        background-size: cover;
-        filter: brightness(0.4) blur(1px);
-        z-index: -2;
-      }
-      */
-
-      /* OPTION 3: Video Background */
-      /*
-      body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: black;
-        z-index: -2;
-      }
-      #bg-video {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        object-fit: cover;
-        filter: brightness(0.3);
-      }
-      */
-
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-
-      /* Container */
-      .container {
-        z-index: 10;
-        padding: 2rem;
-        max-width: 800px;
-        animation: fadeIn 1s ease;
-      }
-
-      /* Glitching 404 */
       .error-code {
-        font-size: clamp(5rem, 15vw, 12rem);
-        font-weight: 800;
-        line-height: 1;
-        letter-spacing: -5px;
-        position: relative;
-        margin-bottom: 1rem;
-        animation: glitch 2s infinite;
-        color: var(--primary-color);
-        text-shadow: 0 0 10px var(--primary-color);
+        font-size: clamp(4rem, 20vw, 8rem);
       }
-
-      @keyframes glitch {
-        0% { transform: translate(0); }
-        20% { transform: translate(-2px, 2px); }
-        40% { transform: translate(-2px, -2px); }
-        60% { transform: translate(2px, 2px); }
-        80% { transform: translate(2px, -2px); }
-        100% { transform: translate(0); }
-      }
-
-      .error-code::before,
-      .error-code::after {
-        content: '404';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      .error-code::before {
-        left: 2px;
-        text-shadow: -2px 0 #00ff9d;
-        animation: glitch-clip 3s infinite;
-        clip-path: inset(25% 0 50% 0);
-      }
-
-      .error-code::after {
-        left: -2px;
-        text-shadow: 2px 0 #ffcc00;
-        animation: glitch-clip 5s infinite;
-        clip-path: inset(50% 0 25% 0);
-      }
-
-      @keyframes glitch-clip {
-        0%, 100% { clip-path: inset(10% 0 40% 0); }
-        25% { clip-path: inset(20% 0 50% 0); }
-        50% { clip-path: inset(30% 0 20% 0); }
-        75% { clip-path: inset(40% 0 10% 0); }
-      }
-
-      /* Message */
-      .message {
+      .message-title {
         font-size: 1.5rem;
-        font-weight: 300;
-        margin-bottom: 2.5rem;
-        opacity: 0.9;
-        animation: fadeInUp 1s ease 0.3s forwards;
-        opacity: 0;
-        transform: translateY(20px);
       }
-
-      /* Button */
-      .btn-home {
-        display: inline-block;
-        padding: 1rem 2.5rem;
-        background: transparent;
-        color: var(--primary-color);
-        border: 2px solid var(--primary-color);
-        border-radius: 50px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s ease 0.6s forwards;
+      .message-desc {
+        font-size: 0.9rem;
       }
-
-      .btn-home:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: var(--glow);
-        background: var(--primary-color);
-        color: #000;
+      .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
       }
+    }
 
-      .btn-home::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.1);
-        transition: 0.5s;
-        z-index: -1;
+    @media (max-width: 480px) {
+      .error-code {
+        font-size: 6rem;
       }
-
-      .btn-home:hover::before {
-        left: 100%;
+      .btn-group {
+        flex-direction: column;
+        gap: 0.8rem;
       }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles" id="particles"></div>
 
-      /* Animations */
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .error-code {
-          font-size: clamp(4rem, 20vw, 8rem);
-          letter-spacing: -3px;
-        }
-        .message {
-          font-size: 1.2rem;
-        }
-        .btn-home {
-          padding: 0.8rem 2rem;
-          font-size: 1rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .error-code {
-          font-size: 6rem;
-        }
-        .message {
-          font-size: 1rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-
-    <!-- Uncomment if using VIDEO background -->
-    <!--
-    <video autoplay muted loop id="bg-video">
-      <source src="https://videos.pexels.com/video-files/3145215/3145215-uhd_2560_1440_25fps.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    -->
-
-    <div class="container">
+  <div class="container">
+    <div class="card">
       <div class="error-code">404</div>
-      <p class="message">Oops! Halaman tdidak ditemukan.</p>
-      <a href="/" class="btn-home">🚀 Kembali Ke Beranda</a>
+      <h2 class="message-title">Page Not Found</h2>
+      <p class="message-desc">
+        Eh, halaman yang lo cari nggak ada atau udah pindah tempat nih<br>
+        Coba cek lagi URL-nya, atau balik ke beranda aja ya
+      </p>
+      <div class="btn-group">
+        <a href="/" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M2.5 8a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V8zm11-3a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v3z"/>
+          </svg>
+          Go Back Home
+        </a>
+        <a href="mailto:support@haewonapis.com" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M15.5 14a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5H1A.5.5 0 0 0 .5 2v11.5a.5.5 0 0 0 .5.5h14.5zM1 1.5A1.5 1.5 0 0 0 .5 3v10A1.5 1.5 0 0 0 2 14.5h12a1.5 1.5 0 0 0 1.5-1.5V3A1.5 1.5 0 0 0 14 1.5H1z"/>
+            <path d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H1.5a.5.5 0 0 1-.5-.5V3.5zm0 4a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H1.5a.5.5 0 0 1-.5-.5V7.5zm0 4a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H1.5a.5.5 0 0 1-.5-.5V11.5z"/>
+          </svg>
+          Support
+        </a>
+        <a href="javascript:history.back()" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708z"/>
+            <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708z"/>
+            <path fill-rule="evenodd" d="M4.646 8.646a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708z"/>
+            <path fill-rule="evenodd" d="M11.354 12.646a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708l-2 2a.5.5 0 0 0 0 .708z"/>
+            <path fill-rule="evenodd" d="M11.354 8.646a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708l-2 2a.5.5 0 0 0 0 .708z"/>
+          </svg>
+          Go Back
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- Optional: Add floating particles with JS -->
-    <!--
-    <script>
-      // Lightweight floating particles (optional)
-      document.addEventListener('DOMContentLoaded', () => {
-        const container = document.querySelector('body');
-        for (let i = 0; i < 20; i++) {
-          const particle = document.createElement('div');
-          particle.style.position = 'absolute';
-          particle.style.width = Math.random() * 5 + 'px';
-          particle.style.height = particle.style.width;
-          particle.style.backgroundColor = 'rgba(255,255,255,0.5)';
-          particle.style.borderRadius = '50%';
-          particle.style.top = Math.random() * 100 + '%';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.opacity = Math.random();
-          particle.style.animation = `float ${3 + Math.random() * 5}s linear infinite`;
-          container.appendChild(particle);
-        }
+  <footer class="footer">
+    © 2025 HaewonAPIS Team
+    <br>
+    Built with by <a href="https://github.com/liwirya" target="_blank">Liwirya</a> | 
+    <a href="https://haewonapis.com" target="_blank">HaewonAPIs</a>
+  </footer>
 
-        const style = document.createElement('style');
-        style.textContent = `
-          @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
-          }
-        `;
-        document.head.appendChild(style);
-      });
-    </script>
-    -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 25;
 
-  </body>
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+
+        const size = Math.random() * 4 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+
+        const colors = [
+          'rgba(255, 255, 255, 0.08)',
+          'rgba(77, 166, 255, 0.08)',
+          'rgba(255, 255, 255, 0.05)'
+        ];
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        particlesContainer.appendChild(particle);
+      }
+    });
+  </script>
+</body>
 </html>
