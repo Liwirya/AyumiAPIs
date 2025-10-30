@@ -172,4 +172,3 @@ Proyek ini dilisensikan di bawah **Lisensi MIT**.
 
 Copyright (c) 2025 Liwirya
 
-```
