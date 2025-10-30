@@ -46,8 +46,8 @@ Pastikan Anda memiliki [Node.js](https://nodejs.org/en/) versi **>=20.0.0**.
 
 1.  **Clone Repository:**
     ```bash
-    git clone https://github.com/Liwirya/AyumiAPIS(歩美).git
-    cd AyumiAPIS(歩美)
+    git clone https://github.com/Liwirya/AyumiAPIs.git
+    cd AyumiAPIs
     ```
 
 2.  **Install Dependensi:**
