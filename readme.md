@@ -59,10 +59,10 @@ Pastikan Anda memiliki [Node.js](https://nodejs.org/en/) versi **>=20.0.0**.
     Buat file `.env` di root proyek untuk menyimpan kunci API dan konfigurasi sensitif.
     ```env
     # Wajib untuk layanan AI
-    GEMINI_API_KEY="AIzaSyAuYU2ZTgbNuPFSSoelmgr3cLQfal3tNjA" 
+    GEMINI_API_KEY="YOUR_APIKEY_GEMINI" 
     
     # Opsional untuk logging
-    DISCORD_WEBHOOK_URL="[https://discord.com/api/webhooks/](https://discord.com/api/webhooks/)..."
+    DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
     
     # Opsional untuk mengubah port
     PORT=1904
