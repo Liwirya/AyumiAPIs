@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/resource/index.html"
+      "dest": "/resources/index.html"
     }
   ]
 }
