@@ -1,125 +1,175 @@
-# 🌐 HaewonAPIs
+# 🌸 AyumiAPIS (歩美)
 
-> A lightweight and modular REST API built with **Express.js**, designed for fast development and seamless deployment on **[Vercel](https://vercel.com)**.  
-> Perfect for personal projects, AI integrations, or backend services.
+> Solusi REST API yang **ringan, modular, dan dibuat dengan Express.js**. Didesain untuk pengembangan yang cepat dan mudah di-deploy ke **Vercel**. Ideal untuk proyek pribadi, integrasi AI, dan layanan *backend* yang efisien.
+>
+> **Ayumi (歩美)**, memiliki arti "Langkah yang indah," merefleksikan arsitektur kode yang terstruktur dan mudah diikuti.
 
-![HaewonAPIs Thumbnail](https://files.catbox.moe/int1gy.jpg)
+![AyumiAPIS Thumbnail](https://files.catbox.moe/ali6lb.jpg)
 
----
+***
 
-## 🔧 Tech Stack
+## ✨ Fitur Utama
 
-| Technology | Icon |
-|-----------|------|
-| HTML5     | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) |
-| CSS3      | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) |
-| JavaScript| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) |
-| Node.js   | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white) |
+Proyek ini menawarkan berbagai *endpoint* API, berfokus pada **Tools (Perkakas)** dan **AI (Kecerdasan Buatan)**, yang didokumentasikan sepenuhnya dengan Swagger UI.
 
----
+### 🤖 Layanan AI (Didukung oleh Google Gemini)
+* **Google Search AI (`/api/ai/google-search`)**: Mencari informasi terkini dari web menggunakan Gemini AI.
+* **Google Code Execution AI (`/api/ai/google-execute`)**: Mengeksekusi kode berdasarkan permintaan natural language, ideal untuk perhitungan kompleks dan tugas pemrograman.
+* **Google Maps AI (`/api/ai/google-maps`)**: Memberikan jawaban kontekstual yang didasarkan pada data geografis Google Maps (mendukung preset lokasi global).
 
-## 📦 Installation
+### 🛠️ Layanan Tools
+* **Speed Test (`/api/tools/speedtest`)**: Melakukan tes kecepatan unggah dan ping, serta mendapatkan informasi geolokasi jaringan (server dan penyedia).
+* **API Gateway & Keamanan**: Dilengkapi dengan **Helmet** (untuk header keamanan), **CORS**, **Rate Limiting** (`100 req/15 min`), dan mekanisme deteksi IP asli.
+* **Logging**: Menggunakan `pino-http` untuk *logging* yang cepat dan opsional mengirim log akses API ke **Discord Webhook**.
+* **Dokumentasi Otomatis**: Menyediakan *playground* interaktif menggunakan Swagger UI pada endpoint `/playground`.
 
-To get started, clone the repository and install dependencies:
+***
+
+## ⚙️ Teknologi yang Digunakan
+
+| Kategori | Teknologi | Keterangan |
+| :--- | :--- | :--- |
+| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white) | Environment runtime utama. |
+| **Web Framework** | ![Express](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white) | Kerangka kerja web yang cepat dan minimalis. |
+| **AI** | `@google/genai` | Integrasi dengan model Google Gemini. |
+| **Database** | `mongodb`, `redis` | Dukungan koneksi untuk data dan caching. |
+| **Keamanan** | `helmet`, `hpp`, `xss-clean` | Lapisan keamanan standar industri. |
+| **Utility** | `axios`, `multer`, `pino` | HTTP client, pengolah *multipart/form-data*, dan *logger* berkinerja tinggi. |
+
+***
+
+## 📋 Prasyarat Instalasi
+
+Pastikan Anda memiliki [Node.js](https://nodejs.org/en/) versi **>=20.0.0**.
+
+### 📦 Langkah Instalasi
+
+1.  **Clone Repository:**
+    ```bash
+    git clone [https://github.com/Liwirya/Base-Apis.git](https://github.com/Liwirya/Base-Apis.git)
+    cd Base-Apis
+    ```
+
+2.  **Install Dependensi:**
+    ```bash
+    npm install
+    ```
+
+3.  **Konfigurasi Environment (Opsional):**
+    Buat file `.env` di root proyek untuk menyimpan kunci API dan konfigurasi sensitif.
+    ```env
+    # Wajib untuk layanan AI
+    GEMINI_API_KEY="AIzaSyAuYU2ZTgbNuPFSSoelmgr3cLQfal3tNjA" 
+    
+    # Opsional untuk logging
+    DISCORD_WEBHOOK_URL="[https://discord.com/api/webhooks/](https://discord.com/api/webhooks/)..."
+    
+    # Opsional untuk mengubah port
+    PORT=1904
+    ```
+
+***
+
+## 🚀 Menjalankan Proyek
+
+### 🔹 Mode Produksi (Start)
+```bash
+npm start 
+# Akses API di: http://localhost:1904 (atau port di config)
+````
+
+### 🔸 Mode Pengembangan (Dev)
+
+Mode ini menggunakan `nodemon` untuk *auto-restart* saat ada perubahan file.
 
 ```bash
-git clone https://github.com/Liwirya/Base-Apis.git
-cd Base-Apis
-npm install
+npm run dev
 ```
 
----
+### 💡 Mengakses Dokumentasi
 
-## 🚀 Running Locally
+Buka browser dan navigasi ke:
 
-Start the server using the following command:
+```
+http://localhost:1904/playground
+```
+
+-----
+
+## 💻 Contoh Penggunaan API
+
+Berikut adalah contoh permintaan menggunakan `curl`:
+
+### 1\. Google Search AI
+
+Mencari pemenang turnamen Euro 2024.
 
 ```bash
-node index
+curl -X GET "http://localhost:1904/api/ai/google-search?query=Siapa%20pemenang%20Euro%202024%3F"
 ```
 
-The API will run on the port specified in `schema/config.js` (default: `1904`). You can access it at `http://localhost:1904`.
+### 2\. Google Code Execution AI
 
----
+Meminta AI untuk menghitung deret bilangan prima.
 
-## 🔧 Configuration
-
-Customize your API by editing the `schema/config.js` file:
-
-```javascript
-const options = {
-  name: "HaewonAPIs", // Ganti dengan nama bebas
-  developer: "@Liwirya", // Ganti dengan nama bebas
-  port: 1904, // Ganti dengan port bebas
-  webName: "HaewonAPIs Playground", // Ganti dengan nama bebas
-  description: "Rest APIs", // Ganti dengan deskripsi bebas
-  favicon: "https://files.catbox.moe/int1gy.jpg", // Ganti dengan URL foto bebas
-};
-
-const host = {
-  BASE_URL: "http://localhost:1904", // Ganti dengan URL yang sesuai
-  // Contoh: https://haewonapis.vercel.app
-};
-
-module.exports = {
-  options,
-  host,
-};
-```
-
----
-
-## 🛠️ Development
-
-### ✅ Run with Nodemon (Auto-restart)
 ```bash
-npm install -g nodemon
-nodemon index
+curl -X GET "http://localhost:1904/api/ai/google-execute?query=Jumlahkan%2050%20bilangan%20prima%20pertama%2C%20dan%20tampilkan%20kode%20eksekusinya"
 ```
 
-### ✅ Environment Variables
-Create a `.env` file for sensitive data:
+### 3\. Speed Test
 
-```env
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1234567890/abcdefg...
-PORT=1904
-NODE_ENV=development
+Melakukan tes kecepatan unggah.
+
+```bash
+curl -X GET "http://localhost:1904/api/tools/speedtest?query=upload"
 ```
 
----
+*(Catatan: Query `upload` atau `ping` bersifat opsional. Jika kosong, akan menjalankan semua tes.)*
 
-## 📂 Project Structure
+-----
+
+## 🗂️ Struktur Proyek
 
 ```
-Base-Apis/
-├── index.js
-├── schema/
-│   ├── config.js
-│   └── endpoint.js
+AyumiAPIS/
+├── index.js              # File entry point (menyiapkan Express, middleware, routes)
 ├── router/
-│   └── api.js
+│   └── api.js            # Mendefinisikan semua endpoint API
+├── schema/
+│   ├── config.js         # Konfigurasi umum (nama, port, URL host)
+│   └── endpoint.js       # Konfigurasi Swagger UI (Dokumentasi API)
 ├── scrapers/
-│   └── tools.js
+│   ├── ai.js             # Implementasi fungsi-fungsi AI (Gemini)
+│   └── tools.js          # Implementasi fungsi-fungsi Tools (speedtest, dll)
 ├── lib/
-│   └── print.js
+│   └── print.js          # Utilitas untuk logging dan animasi konsol
 ├── resources/
-│   └── index.html
-└── package.json
+│   ├── 404.html          # Halaman 404 kustom
+│   └── index.html        # Landing page kustom (Root path "/")
+├── package.json
+└── vercel.json           # Konfigurasi untuk deployment Vercel
 ```
 
----
+-----
 
-## 📎 License
+## 🤝 Kontribusi
 
-MIT © 2025 Liwirya
+Kami sangat menghargai kontribusi Anda\! Jika Anda memiliki ide perbaikan, fitur baru, atau menemukan *bug*, silakan:
 
----
+1.  *Fork* repository ini.
+2.  Buat *branch* baru: `git checkout -b fitur-keren`.
+3.  Lakukan perubahan dan *commit* Anda: `git commit -m 'Menambahkan fitur keren'`.
+4.  *Push* ke *branch*: `git push origin fitur-keren`.
+5.  Buka *Pull Request*.
 
-## 💬 Contact
+-----
 
-- 📧 Email: wiraliwirya@gmail.com
-- 🌐 Website: [https://www.hitam.live](https://www.hitam.live)
-- 📱 WhatsApp: [wa.me/6283879152564](https://wa.me/6283879152564)
-- 🐦 Twitter: [@liwiryawira](https://twitter.com/liwiryawira)
-- 📷 Instagram: [@liwiryawira](https://instagram.com/mynameisliwirya)
-- 🧑‍💻 GitHub: [github.com/Liwirya](https://github.com/Liwirya)
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah **Lisensi MIT**.
+
+**MIT License**
+
+Copyright (c) 2025 Liwirya
+
+```
